@@ -43,7 +43,7 @@ public class TransactionServiceAdapter implements ITransactionServicePort {
 
     @Override
     @Transactional(dontRollbackOn = InsufficientTotalAmountException.class)
-    public CreateTransactionAuthorizationResultModel authorizeTransaction(CreateTransactionAuthorizationModel createTransactionAuthorizationModel) {
+    public synchronized CreateTransactionAuthorizationResultModel authorizeTransaction(CreateTransactionAuthorizationModel createTransactionAuthorizationModel) {
         log.info("Class {} method authorizeTransaction", this.getClass().getName());
         log.info("CreateTransactionAuthorizationModel: {}", createTransactionAuthorizationModel);
 

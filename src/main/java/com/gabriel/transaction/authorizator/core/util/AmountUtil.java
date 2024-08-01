@@ -1,10 +1,11 @@
 package com.gabriel.transaction.authorizator.core.util;
 
-import com.gabriel.transaction.authorizator.core.ApplicationConstants;
 import com.gabriel.transaction.authorizator.core.enums.AmountTypeEnum;
 
 import java.math.BigDecimal;
 import java.util.Map;
+
+import static com.gabriel.transaction.authorizator.core.ApplicationConstants.merchantMccMap;
 
 public class AmountUtil {
 
@@ -30,7 +31,7 @@ public class AmountUtil {
     }
 
     public static AmountTypeEnum findAmountTypeByMerchant(String merchant) {
-        return ApplicationConstants.merchantMccMap.entrySet().stream()
+        return merchantMccMap.entrySet().stream()
                 .filter(entry -> merchant.toUpperCase().contains(entry.getKey().toUpperCase()))
                 .map(Map.Entry::getValue)
                 .findFirst()

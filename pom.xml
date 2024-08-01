@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.gabriel</groupId>
-    <artifactId>transaction-authorizator</artifactId>
+    <artifactId>transaction-authorizer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>transaction-authorizator</name>
     <description>transaction-authorizator</description>
