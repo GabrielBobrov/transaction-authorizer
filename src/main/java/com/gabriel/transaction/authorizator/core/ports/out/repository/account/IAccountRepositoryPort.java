@@ -8,6 +8,4 @@ import java.util.UUID;
 public interface IAccountRepositoryPort {
 
     AccountEntity findById(UUID accountId);
-
-    void save(AccountEntity account);
 }

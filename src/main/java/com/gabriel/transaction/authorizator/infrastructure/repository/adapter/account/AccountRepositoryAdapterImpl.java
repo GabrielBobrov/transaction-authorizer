@@ -24,9 +24,4 @@ public class AccountRepositoryAdapterImpl implements IAccountRepositoryPort {
         return springAccountRepositoryAdapter.findById(accountId)
                 .orElseThrow(() -> new AccountNotFoundException("07"));
     }
-
-    @Override
-    public void save(AccountEntity account) {
-        springAccountRepositoryAdapter.save(account);
-    }
 }
