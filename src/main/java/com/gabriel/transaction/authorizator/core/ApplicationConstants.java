@@ -7,6 +7,11 @@ import java.util.Map;
 
 public class ApplicationConstants {
 
+    public static final String MCC_FOOD = "5411";
+    public static final String MCC_MEAL = "5811";
+    public static final String MCC_CASH = "7011";
+    public static final String MCC_FOOD_ALTERNATIVE = "5412";
+    public static final String MCC_MEAL_ALTERNATIVE = "5812";
     public static final Map<String, AmountTypeEnum> merchantMccMap = new HashMap<>();
 
     static {
