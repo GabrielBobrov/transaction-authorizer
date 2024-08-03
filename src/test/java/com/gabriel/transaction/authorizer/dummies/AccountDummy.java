@@ -11,6 +11,7 @@ public class AccountDummy {
         return AccountEntity.builder()
                 .id(UUID.randomUUID())
                 .foodAmount(BigDecimal.valueOf(100))
-                .cashAmount(BigDecimal.valueOf(200));
+                .cashAmount(BigDecimal.valueOf(200))
+                .mealAmount(BigDecimal.valueOf(300));
     }
 }

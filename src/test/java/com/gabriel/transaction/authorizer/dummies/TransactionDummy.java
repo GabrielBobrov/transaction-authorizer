@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class TransactionDummy {
 
-    public static TransactionEntity.TransactionEntityBuilder createTransactionEntityBuilder() {
+    public static TransactionEntity.TransactionEntityBuilder transactionEntityBuilder() {
         return TransactionEntity.builder()
                 .id(UUID.randomUUID())
                 .account(AccountDummy.accountEntityBuilder().build())

@@ -30,7 +30,7 @@ class TransactionRepositoryAdapterImplTest {
 
     @Test
     void findByIdAndStatusAndAccount_returnsTransactionEntity_whenTransactionExists() {
-        TransactionEntity transactionEntity = TransactionDummy.createTransactionEntityBuilder().build();
+        TransactionEntity transactionEntity = TransactionDummy.transactionEntityBuilder().build();
         TransactionStatusEnum status = TransactionStatusEnum.SUCCESS;
         AccountEntity account = AccountDummy.accountEntityBuilder().build();
         when(springTransactionRepositoryAdapter.findByIdAndStatusAndAccount(transactionEntity.getId(), status, account))
