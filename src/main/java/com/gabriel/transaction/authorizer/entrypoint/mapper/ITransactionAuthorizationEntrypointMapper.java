@@ -1,0 +1,18 @@
+package com.gabriel.transaction.authorizer.entrypoint.mapper;
+
+
+import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizationModel;
+import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizationResultModel;
+import com.gabriel.transaction.authorizer.entrypoint.dto.request.CreateTransactionAuthorizationRequestDTO;
+import com.gabriel.transaction.authorizer.entrypoint.dto.response.CreateTransactionAuthorizationResponseDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
+
+import java.util.UUID;
+
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface ITransactionAuthorizationEntrypointMapper {
+    CreateTransactionAuthorizationModel fromCreateTransactionAuthorizationRequestDTOToCreateTransactionAuthorizationModel(CreateTransactionAuthorizationRequestDTO createTransactionAuthorizationRequestDTO, UUID transactionId);
+
+    CreateTransactionAuthorizationResponseDTO fromCreateTransactionAuthorizationResultModelToCreateTransactionAuthorizationResponseDTO(CreateTransactionAuthorizationResultModel createTransactionAuthorizationModel);
+}
