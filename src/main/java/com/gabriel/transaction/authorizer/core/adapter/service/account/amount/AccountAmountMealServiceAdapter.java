@@ -24,6 +24,7 @@ public class AccountAmountMealServiceAdapter implements IAccountAmountServicePor
         log.info("Class {} method updateAmount", this.getClass().getName());
         log.info("account: {}", account);
         log.info("amount: {}", amount);
+        log.info("transaction: {}", transaction);
 
         BigDecimal mealBalance = account.getMealAmount();
         BigDecimal cashBalance = account.getCashAmount();

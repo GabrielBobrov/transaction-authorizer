@@ -25,6 +25,7 @@ public class AccountAmountCashServiceAdapter implements IAccountAmountServicePor
         log.info("Class {} method updateAmount", this.getClass().getName());
         log.info("account: {}", account);
         log.info("amount: {}", amount);
+        log.info("transaction: {}", transaction);
 
         BigDecimal cashBalance = account.getCashAmount();
 
