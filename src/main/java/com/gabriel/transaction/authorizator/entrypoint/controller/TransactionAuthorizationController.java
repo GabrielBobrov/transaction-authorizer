@@ -8,6 +8,7 @@ import com.gabriel.transaction.authorizator.entrypoint.UrlConstant;
 import com.gabriel.transaction.authorizator.entrypoint.dto.request.CreateTransactionAuthorizationRequestDTO;
 import com.gabriel.transaction.authorizator.entrypoint.dto.response.CreateTransactionAuthorizationResponseDTO;
 import com.gabriel.transaction.authorizator.entrypoint.mapper.ITransactionAuthorizationEntrypointMapper;
+import com.gabriel.transaction.authorizator.entrypoint.openapi.controller.TransactionAuthorizationControllerOpenApi;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping(value = UrlConstant.TRANSACTION_AUTHORIZATION_URI)
-public class TransactionAuthorizationController {
+public class TransactionAuthorizationController implements TransactionAuthorizationControllerOpenApi {
 
     private final ITransactionAuthorizationEntrypointMapper transactionAuthorizationEntrypointMapper;
     private final ITransactionServicePort transferServicePort;

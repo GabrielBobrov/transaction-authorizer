@@ -2,7 +2,7 @@ INSERT INTO tb_accounts (id, food_amount, meal_amount, cash_amount, created_at, 
 VALUES ('e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f', 100.00, 200.00, 3000.00, NOW(), NOW());
 
 INSERT INTO tb_transactions (id, account_id, status, total_amount, created_at, updated_at, mcc, merchant)
-VALUES ('a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d', 'e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f', 'PENDING_AUTHORIZATION', 500.00,
+VALUES ('a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d', 'e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f', 'PENDING_AUTHORIZATION', 500.55,
         NOW(), NOW(), '5411', 'UBER TRIP'),
        ('b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e', 'e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f', 'PENDING_AUTHORIZATION', 75.00,
         NOW(), NOW(), '5811', 'LUNCH TIME'),
