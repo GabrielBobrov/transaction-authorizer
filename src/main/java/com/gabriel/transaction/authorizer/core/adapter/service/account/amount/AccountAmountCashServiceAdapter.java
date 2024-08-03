@@ -14,12 +14,22 @@ import java.math.BigDecimal;
 
 import static com.gabriel.transaction.authorizer.core.util.AmountUtil.isSufficientBalance;
 
+/**
+ * Service adapter for handling cash account amounts.
+ */
 @Slf4j
 @Service
 @AllArgsConstructor
 public class AccountAmountCashServiceAdapter implements IAccountAmountServicePort {
 
-
+    /**
+     * Updates the amount in the account based on the transaction.
+     *
+     * @param account     the account entity
+     * @param amount      the amount to be deducted
+     * @param transaction the transaction entity
+     * @throws InsufficientTotalAmountException if there is insufficient balance
+     */
     @Override
     public void updateAmount(AccountEntity account, BigDecimal amount, TransactionEntity transaction) {
         log.info("Class {} method updateAmount", this.getClass().getName());

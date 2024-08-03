@@ -1,6 +1,5 @@
 package com.gabriel.transaction.authorizer.core.adapter.service.transaction;
 
-
 import com.gabriel.transaction.authorizer.core.enums.AmountTypeEnum;
 import com.gabriel.transaction.authorizer.core.exception.InsufficientTotalAmountException;
 import com.gabriel.transaction.authorizer.core.exception.InvalidMerchantException;
@@ -38,7 +37,13 @@ public class TransactionServiceAdapter implements ITransactionServicePort {
     private final IAccountServicePort accountServicePort;
     private final List<IAccountAmountServicePort> accountAmountStrategiesServicePorts;
 
-
+    /**
+     * Authorizes a transaction based on the provided model.
+     *
+     * @param createTransactionAuthorizationModel the model containing transaction details
+     * @return the result of the transaction authorization
+     * @throws InsufficientTotalAmountException if there is insufficient balance
+     */
     @Override
     @Transactional(dontRollbackOn = InsufficientTotalAmountException.class)
     public synchronized CreateTransactionAuthorizationResultModel authorizeTransaction(CreateTransactionAuthorizationModel createTransactionAuthorizationModel) {
@@ -70,6 +75,14 @@ public class TransactionServiceAdapter implements ITransactionServicePort {
                 .build();
     }
 
+    /**
+     * Validates the transaction details.
+     *
+     * @param createTransactionAuthorizationModel the model containing transaction details
+     * @param transaction                         the transaction entity to validate against
+     * @throws InvalidTotalAmountException if the total amount is invalid
+     * @throws InvalidMerchantException    if the merchant is invalid
+     */
     private void validateTransaction(CreateTransactionAuthorizationModel createTransactionAuthorizationModel, TransactionEntity transaction) {
         if (!Objects.equals(createTransactionAuthorizationModel.getTotalAmount(), transaction.getTotalAmount()))
             throw new InvalidTotalAmountException("07");
