@@ -1,6 +1,5 @@
 package com.gabriel.transaction.authorizer.core.adapter.service.transaction;
 
-import com.gabriel.transaction.authorizer.core.enums.AmountTypeEnum;
 import com.gabriel.transaction.authorizer.core.exception.InsufficientTotalAmountException;
 import com.gabriel.transaction.authorizer.core.exception.InvalidMerchantException;
 import com.gabriel.transaction.authorizer.core.exception.InvalidTotalAmountException;
@@ -15,11 +14,9 @@ import com.gabriel.transaction.authorizer.infrastructure.entity.account.AccountE
 import com.gabriel.transaction.authorizer.infrastructure.entity.transaction.TransactionEntity;
 import com.gabriel.transaction.authorizer.infrastructure.entity.transaction.enums.TransactionStatusEnum;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,7 +24,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class TransactionServiceAdapterTest {

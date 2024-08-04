@@ -1,6 +1,8 @@
 package com.gabriel.transaction.authorizer.dummies;
 
 import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizationModel;
+import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizationResultModel;
+import com.gabriel.transaction.authorizer.entrypoint.dto.request.CreateTransactionAuthorizationRequestDTO;
 import com.gabriel.transaction.authorizer.infrastructure.entity.transaction.TransactionEntity;
 import com.gabriel.transaction.authorizer.infrastructure.entity.transaction.enums.TransactionStatusEnum;
 
@@ -29,6 +31,19 @@ public class TransactionDummy {
                 .totalAmount(BigDecimal.valueOf(100))
                 .merchant("Sample Merchant")
                 .mcc("Sample MCC");
+    }
+
+    public static CreateTransactionAuthorizationRequestDTO.CreateTransactionAuthorizationRequestDTOBuilder createTransactionAuthorizationRequestDTOBuilder(UUID accountId, UUID transactionId) {
+        return CreateTransactionAuthorizationRequestDTO.builder()
+                .accountId(accountId)
+                .totalAmount(BigDecimal.valueOf(100))
+                .merchant("Sample Merchant")
+                .mcc("5811");
+    }
+
+    public static CreateTransactionAuthorizationResultModel.CreateTransactionAuthorizationResultModelBuilder createTransactionAuthorizationResultModelBuilder() {
+        return CreateTransactionAuthorizationResultModel.builder()
+                .code("00");
     }
 
 }
