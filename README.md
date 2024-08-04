@@ -35,3 +35,7 @@ Para executar o projeto localmente, siga os passos a seguir:
 
 ## Documentação da API
 A documentação da API é gerada automaticamente pelo Swagger. Após iniciar a aplicação, você pode acessar a documentação interativa através da URL http://localhost:8080/swagger-ui.html. 
+
+## L4
+Sincronização: Ao anotar o método processTransaction com synchronized, garantimos que apenas uma thread pode executar este método por vez. Isso impede que duas transações sejam processadas simultaneamente para a mesma conta.
+Desempenho: A sincronização pode introduzir um pequeno overhead, mas é essencial para garantir a consistência dos dados. Dado que as transações devem ser processadas rapidamente (menos de 100 ms).
