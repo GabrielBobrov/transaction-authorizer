@@ -35,6 +35,7 @@ Para executar o projeto localmente, siga os passos a seguir:
 
 ## Documentação da API
 A documentação da API é gerada automaticamente pelo Swagger. Após iniciar a aplicação, você pode acessar a documentação interativa através da URL http://localhost:8080/swagger-ui.html. 
+A collection da API está disponível em `src/test/resources/postman.collection/test.postman_collection.json`
 
 ## L4
 Sincronização: Ao anotar o método processTransaction com synchronized, garantimos que apenas uma thread pode executar este método por vez. Isso impede que duas transações sejam processadas simultaneamente para a mesma conta.
