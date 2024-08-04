@@ -5,9 +5,10 @@ import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizat
 import com.gabriel.transaction.authorizer.core.model.CreateTransactionAuthorizationResultModel;
 import com.gabriel.transaction.authorizer.core.ports.in.service.transaction.ITransactionServicePort;
 import com.gabriel.transaction.authorizer.entrypoint.UrlConstant;
+import com.gabriel.transaction.authorizer.entrypoint.disassembler.TransactionAuthorizationDisassembler;
+import com.gabriel.transaction.authorizer.entrypoint.assembler.TransactionAuthorizationAssembler;
 import com.gabriel.transaction.authorizer.entrypoint.dto.request.CreateTransactionAuthorizationRequestDTO;
 import com.gabriel.transaction.authorizer.entrypoint.dto.response.CreateTransactionAuthorizationResponseDTO;
-import com.gabriel.transaction.authorizer.entrypoint.mapper.ITransactionAuthorizationEntrypointMapper;
 import com.gabriel.transaction.authorizer.entrypoint.openapi.controller.TransactionAuthorizationControllerOpenApi;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,9 @@ import java.util.UUID;
 @RequestMapping(value = UrlConstant.TRANSACTION_AUTHORIZATION_URI)
 public class TransactionAuthorizationController implements TransactionAuthorizationControllerOpenApi {
 
-    private final ITransactionAuthorizationEntrypointMapper transactionAuthorizationEntrypointMapper;
     private final ITransactionServicePort transferServicePort;
+    private final TransactionAuthorizationDisassembler transactionAuthorizationDisassembler;
+    private final TransactionAuthorizationAssembler transactionAuthorizationAssembler;
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
@@ -38,15 +40,12 @@ public class TransactionAuthorizationController implements TransactionAuthorizat
         log.info("Class {} method createTransactionAuthorization", this.getClass().getName());
         log.info("CreateTransactionAuthorizationRequestDTO {}", createTransactionAuthorizationRequestDTO);
 
-        CreateTransactionAuthorizationModel createTransactionAuthorizationModel = transactionAuthorizationEntrypointMapper.fromCreateTransactionAuthorizationRequestDTOToCreateTransactionAuthorizationModel(createTransactionAuthorizationRequestDTO, id);
-        log.info("CreateTransactionAuthorizationModel {}", createTransactionAuthorizationModel);
+        CreateTransactionAuthorizationModel createTransactionAuthorizationModel = transactionAuthorizationDisassembler.toModel(createTransactionAuthorizationRequestDTO, id);
 
         CreateTransactionAuthorizationResultModel createTransactionAuthorizationResultModel = transferServicePort.authorizeTransaction(createTransactionAuthorizationModel);
         log.info("CreateTransactionAuthorizationResultModel {}", createTransactionAuthorizationResultModel);
 
-        CreateTransactionAuthorizationResponseDTO createTransactionAuthorizationResponseDTO = transactionAuthorizationEntrypointMapper.fromCreateTransactionAuthorizationResultModelToCreateTransactionAuthorizationResponseDTO(createTransactionAuthorizationResultModel);
-        log.info("CreateTransactionAuthorizationResponseDTO {}", createTransactionAuthorizationResponseDTO);
-        return createTransactionAuthorizationResponseDTO;
+        return transactionAuthorizationAssembler.toResponse(createTransactionAuthorizationResultModel);
     }
 
 }
