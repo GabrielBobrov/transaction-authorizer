@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "60979f52-acbb-43d6-bed4-4c7d3d8bc7da",
+		"name": "caju",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14898313"
+	},
+	"item": [
+		{
+			"name": "transaction - cash with wrong mcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 500.00,\r\n    \"mcc\": \"5811\",\r\n    \"merchant\": \"PAGTO*Maria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "c3d4e5f6-7a8b-9c0d-1e2f-3a4b5c6d7e8f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - cash",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 500.55,\r\n    \"mcc\": \"7011\",\r\n    \"merchant\": \"UBER TRIP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - meal with whrong mcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 75.00,\r\n    \"mcc\": \"5411\",\r\n    \"merchant\": \"LUNCH TIME\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "b2c3d4e5-6f7a-8b9c-0d1e-2f3a4b5c6d7e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - meal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 75.00,\r\n    \"mcc\": \"5812\",\r\n    \"merchant\": \"CHICKEN DINNER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "c0a8e994-a640-4d13-9fee-a53a9f7875e1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - food with wrong mcc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 2500.00,\r\n    \"mcc\": \"7011\",\r\n    \"merchant\": \"RESTAURANTE FIT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "e0c1f27e-d4c1-4228-8ea3-e0839076343c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - food",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 250.00,\r\n    \"mcc\": \"5411\",\r\n    \"merchant\": \"PADARIA DO ZE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "e5f6a7b8-9c0d-1e2f-3a4b-5c6d7e8f9a0b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transaction - food with insufficient amount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\": \"e7b8a9d2-4c3b-4f8e-9b8e-1a2b3c4d5e6f\",\r\n    \"totalAmount\": 25000.00,\r\n    \"mcc\": \"5411\",\r\n    \"merchant\": \"RESTAURANTE FIT MAIS CARO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/:transactionId/authorizations",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":transactionId",
+						"authorizations"
+					],
+					"variable": [
+						{
+							"key": "transactionId",
+							"value": "60144a77-4ea0-4df6-9938-4e55df4aaffe\t"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
